@@ -41,13 +41,6 @@ int main() {
         printf("\n");
     }
 
-    
-
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
     // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
@@ -58,16 +51,56 @@ int main() {
     // 0 0 1 0 0
     // 0 1 1 1 0
     // 1 1 1 1 1
+
+    printf("habilidade cone \n"); //decidi não usar arrays, já que só vou printar no console mesmo
+    for (int y = 0; y < 3; y++) {
+        for (int x = 0; x < 5; x++) {
+            if (x >= 2 - y && x <= 2 + y) {
+                printf("1 ");
+            } else {
+                printf("0 ");
+            }
+        }
+        printf("\n");
+    }
     
     // Exemplo para habilidade em octaedro:
     // 0 0 1 0 0
     // 0 1 1 1 0
     // 0 0 1 0 0
 
+    printf("habilidade octaedro \n");
+    for (int y = 0; y < 5; y++) {
+        for (int x = 0; x < 5; x++) {
+            if ( (y == 0 && x == 2) ||
+                (y == 1 && x >= 1 && x <= 3) ||
+                (y == 2 && x >= 0 && x <= 4) ||
+                (y == 3 && x >= 1 && x <= 3) ||
+                (y == 4 && x == 2) ) {
+                printf("1 ");
+            } else {
+                printf("0 ");
+            }
+        }
+        printf("\n");
+    }
+
     // Exemplo para habilidade em cruz:
     // 0 0 1 0 0
     // 1 1 1 1 1
     // 0 0 1 0 0
+
+    printf("habilidade cruz \n");
+    for (int y = 0; y < 5; y++) {
+        for (int x = 0; x < 5; x++) {
+            if (y == 2 || x == 2) {
+                printf("1 ");
+            } else {
+                printf("0 ");
+            }
+        }
+        printf("\n");
+    }
 
     return 0;
 }
